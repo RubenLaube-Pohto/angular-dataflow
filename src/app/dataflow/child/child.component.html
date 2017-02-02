@@ -1,3 +1,5 @@
-<ul >
-  <li *ngFor="let item of data; let i=index" (click)="deleteItem(i)">{{ i }}: {{ item }}</li>
-</ul>
+  <form [formGroup]="myForm" (ngSubmit)="save(myForm)">
+    <input type="text" formControlName="myFormInput" *ngFor="let item of data; let i=index" value="{{ item }}">
+    <label *ngIf="!myForm.controls.myFormInput.valid">Form not valid!</label>
+    <input type=submit>
+  </form>
